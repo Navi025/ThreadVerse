@@ -68,6 +68,7 @@ export class ThreadVerseApp extends LitElement {
   }
 
   firstUpdated() {
+    console.log('Loading route for path:', location.pathname);
     this.router.loadRoute(location.pathname);
   }
 
@@ -95,9 +96,7 @@ export class ThreadVerseApp extends LitElement {
       <nav>
         <a @click="${() => this.router.navigate('/')}">Home</a>
       </nav>
-      <div id="app-outlet">
-        <div style="color: red; font-weight: bold;">Test: Router outlet content</div>
-      </div>
+      <div id="app-outlet"></div>
 
       <div class="container" style="margin-top: 24px;">
         <div class="controls">
