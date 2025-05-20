@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'https://unpkg.com/lit@2.7.5/index.js?module';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'https://unpkg.com/three@0.152.2/build/three.module.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.152.2/examples/jsm/loaders/GLTFLoader.js?module';
 
 class ThreejsTshirt extends LitElement {
   static properties = {
@@ -70,7 +70,7 @@ class ThreejsTshirt extends LitElement {
 
   _loadModel(modelType) {
     const loader = new GLTFLoader();
-    const modelPath = `/models/${modelType}.glb`;
+    const modelPath = `./models/${modelType}.glb`;
 
     loader.load(modelPath, (gltf) => {
       if (this._model) {
