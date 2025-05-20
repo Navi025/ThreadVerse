@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Custom T-Shirt Designer</title>
+  <title>Thread Verse</title>
+  <link rel="icon" type="image/png" href="./images/TV.png" />
   <script type="module" src="./components/clothing-menu.js"></script>
   <script type="module" src="./components/height-weight-build.js"></script>
   <script type="module" src="./components/image-uploader.js"></script>
   <script type="module" src="./components/text-input.js"></script>
   <script type="module" src="./components/threejs-tshirt.js"></script>
 </head>
+
 <body>
+  <threejs-tshirt imageSrc="./images/threadVerse-logo" modelType="hoodie"></threejs-tshirt>
+
   <clothing-menu></clothing-menu>
   <height-weight-build></height-weight-build>
   <image-uploader></image-uploader>
@@ -41,4 +46,5 @@
     });
   </script>
 </body>
+
 </html>
