@@ -2,11 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ThreadVerse - Part 1</title>
-  <script type="module" src="./app.js"></script>
+  <title>Custom T-Shirt Designer</title>
+  <script type="module" src="./components/clothing-menu.js"></script>
+  <script type="module" src="./components/height-weight-build.js"></script>
+  <script type="module" src="./components/image-uploader.js"></script>
+  <script type="module" src="./components/text-input.js"></script>
+  <script type="module" src="./components/threejs-tshirt.js"></script>
 </head>
 <body>
-  <thread-verse-app></thread-verse-app>
+  <clothing-menu></clothing-menu>
+  <height-weight-build></height-weight-build>
+  <image-uploader></image-uploader>
+  <text-input></text-input>
+  <threejs-tshirt></threejs-tshirt>
+
+  <script type="module">
+    const clothingMenu = document.querySelector('clothing-menu');
+    const hwBuild = document.querySelector('height-weight-build');
+    const imageUploader = document.querySelector('image-uploader');
+    const textInput = document.querySelector('text-input');
+    const threejsTshirt = document.querySelector('threejs-tshirt');
+
+    clothingMenu.addEventListener('clothing-change', (e) => {
+      threejsTshirt.modelType = e.detail.selected;
+    });
+
+    imageUploader.addEventListener('image-change', (e) => {
+      threejsTshirt.imageSrc = e.detail.src;
+    });
+
+    textInput.addEventListener('text-change', (e) => {
+      threejsTshirt.text = e.detail.value;
+    });
+
+    // Handle height-weight-build changes if needed
+    hwBuild.addEventListener('hwbuild-change', (e) => {
+      // Use e.detail.height, e.detail.weight, e.detail.build as needed
+    });
+  </script>
 </body>
 </html>
