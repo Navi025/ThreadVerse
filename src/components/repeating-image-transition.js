@@ -8,19 +8,37 @@ export class RepeatingImageTransition extends LitElement {
       position: relative;
       width: 100%;
       height: 400px;
+      --transition-duration: 1s;
     }
-    .image-container {
-      position: absolute;
+    .container {
+      position: relative;
       width: 100%;
       height: 100%;
+      overflow: hidden;
+    }
+    .image-strip {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      animation: slide 12s linear infinite;
+    }
+    .image-strip.reverse {
+      animation-direction: reverse;
+    }
+    .image {
+      flex: 1 0 25%;
       background-size: cover;
       background-position: center;
-      transition: opacity 1s ease-in-out;
-      opacity: 0;
+      height: 100%;
+      will-change: transform;
     }
-    .image-container.active {
-      opacity: 1;
-      z-index: 1;
+    @keyframes slide {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-25%);
+      }
     }
   `;
 
@@ -56,14 +74,18 @@ export class RepeatingImageTransition extends LitElement {
 
   render() {
     return html`
-      ${this.images.map(
-        (img, index) => html`
-          <div
-            class="image-container ${index === this.currentIndex ? 'active' : ''}"
-            style="background-image: url('${img}')"
-          ></div>
-        `
-      )}
+      <div class="container">
+        <div class="image-strip">
+          ${this.images.map(
+            (img) => html`<div class="image" style="background-image: url('${img}')"></div>`
+          )}
+        </div>
+        <div class="image-strip reverse" style="position: absolute; top: 0; left: 0;">
+          ${this.images.map(
+            (img) => html`<div class="image" style="background-image: url('${img}')"></div>`
+          )}
+        </div>
+      </div>
     `;
   }
 }

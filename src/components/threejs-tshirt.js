@@ -107,9 +107,11 @@ class ThreejsTshirt extends LitElement {
       const texture = new THREE.CanvasTexture(canvas);
 
       this._model.traverse((child) => {
-        if (child.isMesh) {
-          child.material.map = texture;
-          child.material.needsUpdate = true;
+        if (child.isMesh && child.material) {
+          if (child.material.map !== texture) {
+            child.material.map = texture;
+            child.material.needsUpdate = true;
+          }
         }
       });
     };

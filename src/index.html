@@ -3,48 +3,16 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Thread Verse</title>
-  <link rel="icon" type="image/png" href="./images/TV.png" />
-  <script type="module" src="./components/clothing-menu.js"></script>
-  <script type="module" src="./components/height-weight-build.js"></script>
-  <script type="module" src="./components/image-uploader.js"></script>
-  <script type="module" src="./components/text-input.js"></script>
-  <script type="module" src="./components/threejs-tshirt.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ThreadVerse</title>
+  <!-- Favicon link commented out to avoid 404 errors -->
+  <!-- <link rel="icon" href="./images/threadVerse-favicon.png" type="image/png" /> -->
 </head>
 
 <body>
-  <threejs-tshirt imageSrc="./images/threadVerse-logo" modelType="hoodie"></threejs-tshirt>
+  <thread-verse-app></thread-verse-app>
 
-  <clothing-menu></clothing-menu>
-  <height-weight-build></height-weight-build>
-  <image-uploader></image-uploader>
-  <text-input></text-input>
-  <threejs-tshirt></threejs-tshirt>
-
-  <script type="module">
-    const clothingMenu = document.querySelector('clothing-menu');
-    const hwBuild = document.querySelector('height-weight-build');
-    const imageUploader = document.querySelector('image-uploader');
-    const textInput = document.querySelector('text-input');
-    const threejsTshirt = document.querySelector('threejs-tshirt');
-
-    clothingMenu.addEventListener('clothing-change', (e) => {
-      threejsTshirt.modelType = e.detail.selected;
-    });
-
-    imageUploader.addEventListener('image-change', (e) => {
-      threejsTshirt.imageSrc = e.detail.src;
-    });
-
-    textInput.addEventListener('text-change', (e) => {
-      threejsTshirt.text = e.detail.value;
-    });
-
-    // Handle height-weight-build changes if needed
-    hwBuild.addEventListener('hwbuild-change', (e) => {
-      // Use e.detail.height, e.detail.weight, e.detail.build as needed
-    });
-  </script>
+  <script type="module" src="src/app.js"></script>
 </body>
 
 </html>

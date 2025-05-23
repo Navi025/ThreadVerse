@@ -68,7 +68,7 @@ export class HeightWeightBuild extends LitElement {
         <label for="build">Build:</label>
         <select id="build" @change="${this._onBuildChange}">
           <option value="lean" ?selected=${this.build === 'lean'}>Lean</option>
-          <option value="reg" ?selected=${this.build === 'reg'}>Regular</option>
+          <option value="regular" ?selected=${this.build === 'regular'}>Regular</option>
           <option value="athletic" ?selected=${this.build === 'athletic'}>Athletic</option>
           <option value="big" ?selected=${this.build === 'big'}>Big</option>
         </select>

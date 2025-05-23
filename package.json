@@ -1,0 +1,17 @@
+{
+  "name": "threadverse",
+  "version": "1.0.0",
+  "description": "Lit SPA project with repeating image transition and product customizer",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^2.7.5",
+    "three": "^0.152.2"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
+}
